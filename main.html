@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Library App</title>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="C:/Web Projects/js/jquery-3.2.1.js"></script>
+        <script src="C:/Web Projects/js/events.js"></script>
+      
+		<link href="css/mdb.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" 
+		integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src='https://unpkg.com/vue'></script>
+        
+	</head>
+	<body>
+        	<div class="container-fluid">
+			<div class="sect">
+                                <div class="row pt-2 pb-4 mb-3 text-primary justify-content-around">
+					<h5 class="pr-3 display-4">Add your favorite books here</h5>
+					<!--  There's a function to implement below here == 'displayForm' -->
+					<button class="btn btn-sm border-primary bg-light text-primary"  > Add New Book  </button>
+				</div>
+
+				<form style='display: none'  class="form-inline text-primary border p-2 rounded mb-3 justify-content-between border-primary">
+					<label for="book-title" class="p-4">Title</label>
+					<input class="form-control mb-2 mr-sm-2 mb-sm-0" id="book-title" placeholder="Give the book title" type="text">
+					<label for="author" class="p-4"> Author </label>
+					<input  class="form-control mb-2 mr-sm-2 mb-sm-0" id="author" placeholder="Book's Author" type="text">
+					<label for="pages" class="p-4"> Pages </label>
+					<input class="form-control mb-2 mr-sm-2 mb-sm-0" id="pages" placeholder="Number of Pages" type="number">
+					<div class="form-check-inline form-check">
+						<label class="form-check-label p-4" for='read'>
+							<input class="form-check-input"  name="readOrnot" id="read" value="true" checked type="radio"> Read It
+						</label>
+						<label class="form-check-label p-4" for='notRead'>
+							<input class="form-check-input" name="readOrnot" id="notRead"  type="radio" value="false"> Haven't Read It
+						</label>
+					</div> 
+					<button class="btn btn-primary" type="submit" v-on:click.prevent="latestBook">Submit</button>
+				</form>
+			
+			
+			<table class="table table-responsive-lg justify-content-between table-striped text-light table-primary">
+				
+					<thead class="thead-dark" >
+						<tr>
+							<td scope="col">#</td>
+							<td scope="col">Book Title</td>
+							<td scope="col">Author</td>
+							<td scope="col">Pages</td>
+							<td scope="col">Completed</td>
+							<td scope="col">{{display}} </td>
+						</tr>
+					</thead>
+					<!-- There's a binding on the last column ..... Figure it out 
+					
+						Also there's a click event on the delete btn you gotta implement
+					-->
+					<tbody ></tbody>
+					<tr v-for='(book, index) in libBooks'>
+
+						<td  scope="row">{{index + 1}} </td>
+						<td>{{book.title}}</td>
+						<td >{{book.author}} </td>
+						<td>{{book.author}} </td>
+						<td id="read" >  {{book.read}}</td>
+						<td > <button type="button" class="close"  ><span aria-hidden="true">&times;</span></button> </td>
+					</tr>
+					<!--
+					<tr>
+
+						<td  scope="row"> 1 </td>
+						<td> Book Title </td>
+						<td >Author</td>
+						<td>Pages </td>
+						<td id="read" >  Yes </td>
+						<td > <button type="button" class="close" ><span aria-hidden="true">&times;</span></button> </td>
+					</tr>
+					-->
+					
+					
+				</tbody>
+			</table>
+		</div>
+                        </div>
+		</div>  
+                 
+    <!-- Optional JavaScript And JQuery -->
+    <script src="C:/Web Projects/js/jquery-3.2.1.js"></script>
+    <script src="activity.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" 
+		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="js/mdb.min.js"></script>
+        
+	</body>
+</html>
